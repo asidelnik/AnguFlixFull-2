@@ -1,4 +1,7 @@
 .private-movies {
-  background-image: url("IL-en-20180212.jpg");
-  background-color: #cccccc;
+  background-color: #efefef;
+}
+
+.container{
+  border:1px solid gray;
 }

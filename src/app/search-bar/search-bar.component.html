@@ -1,1 +1,4 @@
 <input type="text" [(ngModel)]="changedSearch" (input)="searchMovieTitle()" placeholder="Search by title" />
+<select *ngIf="showselect" [(ngModel)]="changedSearch">
+    <option *ngFor="let c of years" [ngValue]="c">{{c}}</option>
+</select>

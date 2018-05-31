@@ -1,9 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {Movie} from './movieModel';
+
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: any[], currentSearchTerm: string): any[] {
+  transform(items: Movie[], currentSearchTerm: string): Movie[] {
     if (!items) { return []; }
     if (!currentSearchTerm) { return items; }
 

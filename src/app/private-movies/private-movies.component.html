@@ -1,5 +1,5 @@
 <div class="col-4">
-  <app-search-bar class="private-search row" (searchChanged)="searchMovie($event)"></app-search-bar>
+  <app-search-bar class="private-search row" (searchChanged)="searchMovie($event)" [showselect]="showselect"></app-search-bar>
 </div>
 <div class="col-4">
   <i class="fa fa-trash" *ngIf="privateMovies.length > 0" (click)="allowRemoveMovies()"></i>
@@ -14,6 +14,6 @@
   </div>
 </div>
 <ul class="row">
-  <app-movie class="col-4" *ngFor="let movie of privateMovies | filter : currentSearchTerm; let i = index" [movie]=movie [deleteMoviesFromPrivate]="deleteMoviesFromPrivate" (clickToRemoveMovie)="removeMovieFromPrivate($event)"></app-movie>
+  <app-movie class="col-3" *ngFor="let movie of privateMovies | filter : currentSearchTerm; let i = index" [movie]=movie [deleteMoviesFromPrivate]="deleteMoviesFromPrivate" (clickToRemoveMovie)="removeMovieFromPrivate($event)"></app-movie>
 </ul>
 

@@ -8,9 +8,9 @@ import { Movie } from '../movieModel';
   styleUrls: ['./all-movies.component.css']
 })
 export class AllMoviesComponent implements OnInit {
-  movies: any[];
+  movies: Movie[];
   currentSearchTerm: string;
-
+  showselect:boolean=false;
   constructor( private moviesService: MoviesService ) { }
 
   ngOnInit() {

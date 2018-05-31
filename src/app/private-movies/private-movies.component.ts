@@ -9,10 +9,10 @@ import {Movie} from '../movieModel';
 })
 export class PrivateMoviesComponent implements OnInit {
   title: string = 'Select movies from below to add to your collection';
-  privateMovies: any[];
+  privateMovies: Movie[];
   currentSearchTerm: string;
   deleteMoviesFromPrivate: boolean;
-
+  showselect:boolean=false;
 
   constructor( private moviesService: MoviesService ) { }
 
