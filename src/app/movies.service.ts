@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 const privateMovies: Movie[] = [];
 
-let budget: number = 10;
+let budget: number = 100;
 
 @Injectable()
 export class MoviesService implements OnInit {
@@ -31,10 +31,10 @@ export class MoviesService implements OnInit {
         return this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies')
     }
 
-    aNumber() {
-        this.number = 5;
-        console.log(this.number);
-    }
+    // aNumber() {
+    //     this.number = 5;
+    //     console.log(this.number);
+    // }
 
 
 
