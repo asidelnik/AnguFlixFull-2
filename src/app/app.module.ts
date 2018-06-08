@@ -37,7 +37,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
         FormsModule,
         HttpClientModule,
         RouterModule,
-        // Routes,
         AppRoutingModule
     ],
     providers: [MoviesService, UserService],
