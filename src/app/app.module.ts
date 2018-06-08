@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 
 
@@ -14,6 +15,9 @@ import { BudgetComponent } from './budget/budget.component';
 import { MoviesService } from './movies.service';
 import { UserService } from './user.service';
 import { FilterPipe } from './filter.pipe';
+import { AppRoutingModule } from './/app-routing.module';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -24,12 +28,17 @@ import { FilterPipe } from './filter.pipe';
         MovieComponent,
         SearchBarComponent,
         BudgetComponent,
-        FilterPipe
+        FilterPipe,
+        MovieInfoComponent,
+        NavBarComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterModule,
+        // Routes,
+        AppRoutingModule
     ],
     providers: [MoviesService, UserService],
     bootstrap: [AppComponent]

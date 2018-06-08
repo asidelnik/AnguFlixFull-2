@@ -9,7 +9,7 @@ import { Movie } from '../movieModel';
     styleUrls: ['./private-movies.component.css']
 })
 export class PrivateMoviesComponent implements OnInit {
-    title: string = 'Select movies from below to add to your collection';
+    title: string = 'Select movies to add to your collection';
     privateMovies: Movie[] = [];
     currentSearchTerm: string;
     deleteMoviesFromPrivate: boolean;
@@ -22,12 +22,7 @@ export class PrivateMoviesComponent implements OnInit {
     }
 
     searchMovie(searchTerm: string) {
-        // let foundMovie = this.privateMovies.find((movie) => movie.title.includes(searchTerm != '' && searchTerm));
         this.currentSearchTerm = searchTerm;
-    }
-
-    get budgetState() {
-        return this.userService.getBudgetState();
     }
 
     allowRemoveMovies() {
