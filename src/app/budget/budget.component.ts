@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../movies.service';
+import { UserService } from '../user.service';
 
 
 @Component({
-  selector: 'app-budget',
-  templateUrl: './budget.component.html',
-  styleUrls: ['./budget.component.css']
+    selector: 'app-budget',
+    templateUrl: './budget.component.html',
+    styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent implements OnInit {
 
-  constructor( private moviesService: MoviesService ) { }
+    constructor(private userService: UserService) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 
-  get budget() {
-    return this.moviesService.getBudget();
-  }
+    get budget() {
+        return this.userService.getBudget();
+    }
 
 }
