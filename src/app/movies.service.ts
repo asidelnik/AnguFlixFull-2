@@ -31,11 +31,6 @@ export class MoviesService implements OnInit {
         return this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies')
     }
 
-    // aNumber() {
-    //     this.number = 5;
-    //     console.log(this.number);
-    // }
-
 
 
 
@@ -94,11 +89,3 @@ export class MoviesService implements OnInit {
         // return this.privateMovies;
     }
 }
-
-
-// .subscribe((data) => {
-        //     console.log(data);
-        //     //this.allMovies = data;
-        //     console.log(this.allMovies);
-        // })
-        //return this.allMovies;

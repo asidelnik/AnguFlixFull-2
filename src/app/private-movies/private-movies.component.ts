@@ -18,7 +18,6 @@ export class PrivateMoviesComponent implements OnInit {
 
   ngOnInit() {
     this.privateMovies = this.moviesService.getPrivateMovies();
-    console.log(this.privateMovies)
   }
 
   searchMovie(searchTerm: string) {
