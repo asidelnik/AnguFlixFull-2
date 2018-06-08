@@ -1,6 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Movie } from './movieModel';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 
 // const allMovies: Movie[] = [
@@ -17,26 +19,24 @@ let budget: number = 10;
 
 @Injectable()
 export class MoviesService implements OnInit {
-    public allMovies: Movie[];  // private
+    //public allMovies: Movie[];  // private
     public number: number;
     privateMovies: Movie[] = privateMovies;
     budgetState: string;
 
-    // private movieSubject: Subject<number>;
-    // public movieUpdated: Observable<number>;
+    public movieSubject: Subject<Movie[]>;
+    public movieUpdated: Observable<Movie[]>;
 
-
-    constructor(private http: HttpClient) { }
+    
+    constructor(private http: HttpClient) {
+        this.movieSubject = new Subject<Movie[]>();
+        this.movieUpdated = this.movieSubject.asObservable();
+    }
 
     ngOnInit() {}
 
-    getAllMovies() {
-        this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies').subscribe((data) => {
-            console.log(data);
-            this.allMovies = data;
-            console.log(this.allMovies);
-        })
-        return this.allMovies;
+    getAllMovies(): Observable<Movie[]>  {
+        return this.http.get<Movie[]>('https://anguflix-api.herokuapp.com/api/movies')
     }
 
     aNumber() {
@@ -102,3 +102,11 @@ export class MoviesService implements OnInit {
         // return this.privateMovies;
     }
 }
+
+
+// .subscribe((data) => {
+        //     console.log(data);
+        //     //this.allMovies = data;
+        //     console.log(this.allMovies);
+        // })
+        //return this.allMovies;

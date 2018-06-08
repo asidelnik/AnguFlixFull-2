@@ -3,6 +3,6 @@
     [showselect]="showselect"></app-search-bar>
 <ul class="row">
     <app-movie class="col-3" (clickedMovie)="addMovieToPrivate($event)"
-        *ngFor="let movie of movies | filter : currentSearchTerm; let i = index"
+        *ngFor="let movie of allMovies | filter : currentSearchTerm; let i = index"
         [movie]=movie></app-movie>
 </ul>

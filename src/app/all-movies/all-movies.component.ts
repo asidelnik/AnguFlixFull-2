@@ -15,23 +15,11 @@ export class AllMoviesComponent implements OnInit {
     constructor(private moviesService: MoviesService) { }
 
     ngOnInit() {
-        // this.allMovies = this.moviesService.getAllMovies();
-        // console.log(this.allMovies);
-        
-        // this.allMovies = this.moviesService.allMovies;
-        // console.log(this.moviesService.allMovies);
-        this.number = this.moviesService.number;
-        console.log(this.number);
-
-        this.getMovies();
-        // console.log("all-movies ngOnInit");
-        // console.log(this.allMovies);
-    }
-
-    getMovies(): void {
-        // console.log("getMovies called");
-        this.allMovies = this.moviesService.getAllMovies();
-        console.log(this.allMovies);
+        this.moviesService.getAllMovies().subscribe((results) => {
+            this.allMovies = results;
+            console.log(results);
+            
+        });
     }
 
 
@@ -44,3 +32,17 @@ export class AllMoviesComponent implements OnInit {
         this.moviesService.addMovieToPrivateMovies(movie);
     }
 }
+
+
+// Older ngOnInit code
+        // // this.allMovies = this.moviesService.getAllMovies();
+        // // console.log(this.allMovies);
+
+        // // this.allMovies = this.moviesService.allMovies;
+        // // console.log(this.moviesService.allMovies);
+        // this.number = this.moviesService.number;
+        // console.log(this.number);
+
+        // this.getMovies();
+        // // console.log("all-movies ngOnInit");
+        // // console.log(this.allMovies);
