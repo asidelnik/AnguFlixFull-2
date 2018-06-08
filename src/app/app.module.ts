@@ -16,6 +16,8 @@ import { MoviesService } from './movies.service';
 import { UserService } from './user.service';
 import { FilterPipe } from './filter.pipe';
 import { AppRoutingModule } from './/app-routing.module';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -26,14 +28,16 @@ import { AppRoutingModule } from './/app-routing.module';
         MovieComponent,
         SearchBarComponent,
         BudgetComponent,
-        FilterPipe
+        FilterPipe,
+        MovieInfoComponent,
+        NavBarComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
         RouterModule,
-        Routes,
+        // Routes,
         AppRoutingModule
     ],
     providers: [MoviesService, UserService],
