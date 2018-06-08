@@ -3,44 +3,20 @@ import { Movie } from './movieModel';
 import { HttpClient } from '@angular/common/http';
 
 
-const privateMovies: Movie[] = [];
+
+// const privateMovies: Movie[] = [];
 
 let budget: number = 100;
 
 @Injectable()
 export class UserService {
-    privateMovies: Movie[] = privateMovies;
+    privateMovies: Movie[] = []; // = privateMovies;
     budgetState: string;
 
     constructor() { }
 
     getPrivateMovies(): Movie[] {
-        return privateMovies;
-    }
-
-    getBudget(): number {
-        return budget;
-    }
-
-    getBudgetState(): string {
-        return this.budgetState;
-    }
-
-    addMovieToPrivateArray(movie: Movie) {
-        privateMovies.push(movie);
-    }
-
-    reduceFromBudget(price: number) {
-        budget -= price;
-    }
-
-    isMovieNewToArray(title: string) {
-        for (var movie of privateMovies) {
-            if (title == movie.title) {
-                return false;
-            }
-        }
-        return true;
+        return this.privateMovies;
     }
 
     addMovieToPrivateMovies(movie: Movie) {
@@ -57,14 +33,38 @@ export class UserService {
         }
     }
 
-    removeMovieFromPrivateMovieArray(movieToDelete: Movie) {
-        let movieIndex = this.privateMovies.findIndex(m => m.id == movieToDelete.id);
+    isMovieNewToArray(title: string) {
+        for (var movie of this.privateMovies) {
+            if (title == movie.title) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    addMovieToPrivateArray(movie: Movie) {
+        this.privateMovies.push(movie);
+    }
+
+    removePrivateMovie(deleteMovie: Movie) {
+        let movieIndex = this.privateMovies.findIndex(movie => movie._id == deleteMovie._id);
         this.privateMovies.splice(movieIndex, 1);
-        budget += movieToDelete.price;
-        // this.privateMovies = this.privateMovies.filter((movie) => {
-        //   return movie.id !== movieToDelete.id;
-        // });
-        // return this.privateMovies;
+        budget += deleteMovie.price;
+    }
+
+
+
+    getBudget(): number {
+        return budget;
+    }
+
+    getBudgetState(): string {
+        return this.budgetState;
+    }
+
+    reduceFromBudget(price: number) {
+        budget -= price;
     }
 
 }
+
