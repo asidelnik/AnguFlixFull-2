@@ -12,6 +12,7 @@ import { MovieComponent } from './movie/movie.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BudgetComponent } from './budget/budget.component';
 import { MoviesService } from './movies.service';
+import { UserService } from './user.service';
 import { FilterPipe } from './filter.pipe';
 
 
@@ -30,7 +31,7 @@ import { FilterPipe } from './filter.pipe';
         FormsModule,
         HttpClientModule
     ],
-    providers: [MoviesService],
+    providers: [MoviesService, UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MoviesService} from '../movies.service';
+import { MoviesService } from '../movies.service';
+import { UserService } from '../user.service';
 import {Movie} from '../movieModel';
 
 @Component({
@@ -14,10 +15,10 @@ export class PrivateMoviesComponent implements OnInit {
   deleteMoviesFromPrivate: boolean;
   showselect:boolean=false;
 
-  constructor( private moviesService: MoviesService ) { }
+    constructor(private moviesService: MoviesService, private userService: UserService ) { }
 
   ngOnInit() {
-    this.privateMovies = this.moviesService.getPrivateMovies();
+      this.privateMovies = this.userService.getPrivateMovies();
   }
 
   searchMovie(searchTerm: string) {
@@ -26,7 +27,7 @@ export class PrivateMoviesComponent implements OnInit {
   }
 
   get budgetState() {
-    return this.moviesService.getBudgetState();
+      return this.userService.getBudgetState();
   }
 
   allowRemoveMovies() {
@@ -34,6 +35,6 @@ export class PrivateMoviesComponent implements OnInit {
   }
 
   removeMovieFromPrivate(movie: Movie) {
-    this.moviesService.removeMovieFromPrivateMovieArray(movie);
+      this.userService.removeMovieFromPrivateMovieArray(movie);
   }
 }
