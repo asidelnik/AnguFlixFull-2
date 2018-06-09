@@ -18,6 +18,7 @@ import { FilterPipe } from './filter.pipe';
 import { AppRoutingModule } from './/app-routing.module';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PrivateCountComponent } from './private-count/private-count.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
         BudgetComponent,
         FilterPipe,
         MovieInfoComponent,
-        NavBarComponent
+        NavBarComponent,
+        PrivateCountComponent
     ],
     imports: [
         BrowserModule,
