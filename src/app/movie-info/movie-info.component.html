@@ -1,3 +1,14 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/private-movies">My list</a>
+        </li>
+        <li class="breadcrumb-item active"
+            aria-current="page">{{movie.title}}</li>
+    </ol>
+</nav>
+
+
 <li data-id="{{movie._id}}">
     <div class="movie-data">
         <div class="img">
@@ -6,15 +17,27 @@
         <div class="movie-title">
             <h4>{{movie.title}}</h4>
             <p>{{movie.year}}</p>
+
+            <p>Price:</p>
             <p>${{movie.price}}</p>
-            <p>${{movie.director}}</p>
+
+            <p>Director:</p>
+            <p>{{movie.director}}</p>
         </div>
+        <p>Full description:</p>
         <div class="desc">
             {{movie.fullDescription}}
         </div>
+        <p>Reviews:</p>
         <ul class="desc">
             <li *ngFor="let review of movie.reviews
-            let i = index">{{review}}</li>
+            let i = index">
+                <div>
+                    <h6>{{review.rating}}</h6>
+                    <p>{{review.text}}</p>
+                    <p>{{review.name}}</p>
+                </div>
+            </li>
         </ul>
 
     </div>
