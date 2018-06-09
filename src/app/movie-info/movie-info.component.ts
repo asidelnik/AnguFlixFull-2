@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { Movie } from '../movieModel';
 
 @Component({
-  selector: 'app-movie-info',
-  templateUrl: './movie-info.component.html',
-  styleUrls: ['./movie-info.component.css']
+    selector: 'app-movie-info',
+    templateUrl: './movie-info.component.html',
+    styleUrls: ['./movie-info.component.css']
 })
 export class MovieInfoComponent implements OnInit {
 
-  constructor() { }
+    movie: Movie = new Movie();
 
-  ngOnInit() {
-  }
+    constructor(private userService: UserService) { }
 
+    ngOnInit() {
+        this.movie = this.userService.getPickedMovieInfo();
+    }
 }

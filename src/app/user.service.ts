@@ -12,6 +12,7 @@ let budget: number = 100;
 export class UserService {
     privateMovies: Movie[] = []; // = privateMovies;
     budgetState: string;
+    pickedMovieInfo: Movie = new Movie();
 
     constructor() { }
 
@@ -66,5 +67,12 @@ export class UserService {
         budget -= price;
     }
 
+
+    passMovieToMovieInfo(movie: Movie) {
+        this.pickedMovieInfo = movie;
+    }
+    getPickedMovieInfo(): Movie{
+        return this.pickedMovieInfo;
+    }
 }
 
