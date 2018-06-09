@@ -22,7 +22,5 @@
     <app-movie class="col-3" *ngFor="let movie of privateMovies | filter : currentSearchTerm; let i = index"
         [movie]=movie [deleteMoviesFromPrivate]="deleteMoviesFromPrivate"
         (clickToRemoveMovie)="removePrivateMovie($event)" [routerLink]="['/movie-info', movie._id]" (clickedMovie)="showMovieInfo($event)">  
-        
-         <!-- (click)="showMovieInfo(movie)" -->
     </app-movie>
 </ul>

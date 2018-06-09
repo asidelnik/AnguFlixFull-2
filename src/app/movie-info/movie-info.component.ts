@@ -16,5 +16,4 @@ export class MovieInfoComponent implements OnInit {
     ngOnInit() {
         this.movie = this.userService.getPickedMovieInfo();
     }
-
 }
