@@ -32,4 +32,16 @@ export class PrivateMoviesComponent implements OnInit {
     removePrivateMovie(movie: Movie) {
         this.userService.removePrivateMovie(movie);
     }
+
+    // showMovieInfo(movie: Movie) {
+    //     this.userService.addMovieToPrivateMovies(movie);
+    // }
+
+    // showMovieInfo(movie) {
+    //     this.router.navigate(['/product-details', movie._id]);
+    // }
+
+    showMovieInfo(movie: Movie) {
+        this.userService.passMovieToMovieInfo(movie);
+    }
 }

@@ -1,3 +1,21 @@
-<p>
-  movie-info works!
-</p>
+<li data-id="{{movie._id}}">
+    <div class="movie-data">
+        <div class="img">
+            <img src="{{movie.imgUrl}}">
+        </div>
+        <div class="movie-title">
+            <h4>{{movie.title}}</h4>
+            <p>{{movie.year}}</p>
+            <p>${{movie.price}}</p>
+            <p>${{movie.director}}</p>
+        </div>
+        <div class="desc">
+            {{movie.fullDescription}}
+        </div>
+        <ul class="desc">
+            <li *ngFor="let review of movie.reviews
+            let i = index">{{review}}</li>
+        </ul>
+
+    </div>
+</li>

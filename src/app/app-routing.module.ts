@@ -10,7 +10,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 const routes: Routes = [
     { path: '', component: AllMoviesComponent },
     { path: 'private-movies', component: PrivateMoviesComponent },
-    { path: 'movie-info', component: MovieInfoComponent }
+    { path: 'movie-info/:id', component: MovieInfoComponent }
 ];
 
 @NgModule({
